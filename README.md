@@ -3,7 +3,16 @@
 **Post-Quantum Security for Machine-Learning Systems**
 
 Planning repository for doctoral research at the intersection of LLM/AI security,
-post-quantum cryptography, and quantum computing.
+post-quantum cryptography, and the quantum threat model.
+
+## Operating constraints
+
+- **Compute:** one classical workstation, optionally one consumer GPU, cloud API
+  credits. **No quantum hardware. No side-channel lab equipment.**
+- **Publication target:** IEEE / ACM **Transactions** only.
+
+Every problem in this repository is executable under those constraints and maps
+to a specific Transactions venue.
 
 ## Thesis claim
 
@@ -15,35 +24,39 @@ post-quantum cryptography, and quantum computing.
 > — does not address this class. This work characterizes the gap, quantifies the
 > exposure, and provides mechanisms that close it.
 
-Quantum computing enters this program as a **threat model** (motivating PQC) and,
-optionally, as **certified randomness infrastructure**. It is deliberately *not*
-used as a machine-learning substrate — see `docs/02-open-problems.md`, P10, for
-the reasoning.
+Quantum computing enters as a **threat model**, and as **classical resource
+estimation about quantum algorithms**. It is deliberately not used as a
+machine-learning substrate — reasoning in `docs/02-open-problems.md` (T10 and the
+removals table) and a prepared committee answer in `docs/03-thesis-architecture.md` §3.6.
+
+PQC is classical cryptography designed against a quantum adversary. The entire
+field runs on ordinary machines.
 
 ## Contents
 
 | Document | Purpose |
 |---|---|
-| [`docs/01-landscape-and-hurdles.md`](docs/01-landscape-and-hurdles.md) | What industry cannot currently do, across all three fields (H1-H13) |
-| [`docs/02-open-problems.md`](docs/02-open-problems.md) | Ten ranked, Q1-scoped open problems with method, evidence, cost, venue, and risk |
+| [`docs/01-landscape-and-hurdles.md`](docs/01-landscape-and-hurdles.md) | What industry cannot currently do (H1-H13), and the three distinct senses of "quantum" |
+| [`docs/02-open-problems.md`](docs/02-open-problems.md) | Ten ranked problems with claim, method, required evidence, hardware cost, Transactions venue, and risk |
 | [`docs/03-thesis-architecture.md`](docs/03-thesis-architecture.md) | Unifying claim, four-paper sequence, time budget, failure modes |
-| [`docs/04-venues-and-rigor.md`](docs/04-venues-and-rigor.md) | Q1 venue targets, rejection reasons, rigor checklist, ethics and disclosure |
-| [`docs/05-first-90-days.md`](docs/05-first-90-days.md) | Reading plan, tooling, reproductions, and the decision to make by day 90 |
+| [`docs/04-venues-and-rigor.md`](docs/04-venues-and-rigor.md) | Transactions targets per problem, what the constraint costs, rejection reasons, rigor checklist, ethics |
+| [`docs/05-first-90-days.md`](docs/05-first-90-days.md) | Reading plan, workstation-only tooling, public trace datasets, two reproductions, one novel measurement |
 
 ## Shortlist
 
-| Rank | Problem | Tier | Cost | Q1 fit |
-|---|---|---|---|---|
-| 1 | Harvest-now-decrypt-later against RAG and embedding stores | A | Low | Very high |
-| 2 | Deep-learning side-channel analysis of ML-DSA's rejection loop | A | Medium (hardware) | Very high |
-| 3 | A benchmark for cryptographic discovery and migration correctness | A | Low | High |
-| 4 | Post-quantum provenance and delegation for agentic systems | B | Medium | High |
-| 5 | Cryptographic agility as a measurable property of ML systems | B | Low | Medium-high |
+| Rank | Problem | Hardware | Transactions target |
+|---|---|---|---|
+| 1 | Harvest-now-decrypt-later against RAG and embedding stores | 1 GPU | IEEE TIFS |
+| 2 | Toolchain-introduced timing leakage in the PQC stack, with LLM-assisted repair | None | IEEE TSE / TDSC |
+| 3 | Benchmark for cryptographic discovery and PQC migration correctness | None | IEEE TSE / ACM TOSEM |
+| 4 | Cross-dataset generalization of DL side-channel attacks on ML-KEM / ML-DSA | 1 GPU | IEEE TIFS / TC |
+| 5 | Post-quantum provenance and delegation for agentic systems | None | IEEE TDSC |
 
-Full catalog, including the five lower-ranked problems and the one to avoid, in
-`docs/02-open-problems.md`.
+Full catalog including five lower-ranked problems, the removals, and the one to
+avoid: `docs/02-open-problems.md`.
 
 ## Status
 
-Planning stage. Next action: the reproductions in `docs/05-first-90-days.md`,
-weeks 2-6.
+Planning stage. Next action: the two reproductions in `docs/05-first-90-days.md`,
+weeks 2-6. The `-O0` vs `-O2` constant-time pilot is the highest-information
+two weeks available — it decides whether problem T4 exists.
