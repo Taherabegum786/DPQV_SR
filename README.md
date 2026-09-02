@@ -36,6 +36,7 @@ field runs on ordinary machines.
 
 | Document | Purpose |
 |---|---|
+| [`docs/00-proposal-index.md`](docs/00-proposal-index.md) | Every proposal at a glance: committed spine, reserve, and deliberate exclusions |
 | [`docs/01-landscape-and-hurdles.md`](docs/01-landscape-and-hurdles.md) | What industry cannot currently do (H1-H13), and the three distinct senses of "quantum" |
 | [`docs/02-open-problems.md`](docs/02-open-problems.md) | Ten ranked problems with claim, method, required evidence, hardware cost, Transactions venue, and risk |
 | [`docs/03-thesis-architecture.md`](docs/03-thesis-architecture.md) | Unifying claim, four-paper sequence, time budget, failure modes |
