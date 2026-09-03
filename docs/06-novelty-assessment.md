@@ -1,7 +1,9 @@
 # 6. Novelty Assessment — read this before believing anything in §2
 
-*Written September 2026, after a targeted prior-art check on four of the
-proposals.*
+*Written September 2026. First round: a targeted prior-art check on four
+proposals. Second round (§6.5 onward): T3, T5 and T6 checked as well.*
+
+**Running tally: 7 proposals checked, 7 occupied. Two removed outright.**
 
 ## 6.1 The correction
 
@@ -10,9 +12,9 @@ searches, not from a systematic novelty check. Several of its gap statements —
 phrases like *"nobody has composed the two"* and *"there is no benchmark
 with..."* — were stated with more confidence than the evidence supported.
 
-A targeted search on four proposals found substantial prior art on **all four**.
-That is a 4/4 hit rate, which means the correct prior for the six unchecked
-proposals is that they are also partly occupied, not that they are clear.
+Targeted searches have now checked seven proposals and found substantial prior
+art on **all seven**. Two (T5, T7) are dead as proposed. A 7/7 hit rate means the
+correct prior for the three unchecked proposals is that they are occupied too.
 
 **None of the proposals in this repository should be treated as verified novel
 until the protocol in §6.4 has been run on it.**
@@ -102,9 +104,156 @@ automatic oracle and is not addressed by any of the above. Consider inverting th
 paper: the compiler study becomes related work and setup; the repair evaluation
 becomes the contribution.
 
-### T3, T5, T6, T8, T9, T10 — **UNCHECKED**
+### T3 — Cross-dataset generalization of DL-SCA on ML-KEM/ML-DSA → **CORE CLAIM FALSE**
 
-Not yet searched. Given 4/4 above, assume occupied until shown otherwise. Known
+Portability is not an unstudied gap. It is a named subfield with its own methods,
+and it has already been applied to Kyber specifically.
+
+- *Enhancing Portability in Deep Learning-Based Side-Channel Attacks Against
+  Kyber* (<https://dl.acm.org/doi/10.1007/978-981-97-9053-1_9>): Ablated Multiple
+  Leakage Point Model, explicitly optimizing **intra-board** (same device, different
+  probe placement) and **inter-board** (different devices) portability, >99% accuracy.
+- *A Second Look at the Portability of Deep Learning Side-Channel Attacks*,
+  RAID 2024 (<https://homepages.uc.edu/~wang2ba/files/pub/raid24_mabon.pdf>).
+- *AL-PA: cross-device profiled side-channel attack using adversarial learning*,
+  DAC 2022 (<https://dl.acm.org/doi/10.1145/3489517.3530517>) — device-invariant
+  feature learning.
+- *Cross-device profiled side-channel attack with unsupervised domain adaptation* —
+  portability treated as a domain-discrepancy problem, which is exactly the
+  proposed method.
+- *Portability of Deep-Learning Side-Channel Attacks against Software AES*
+  (<https://dl.acm.org/doi/10.1145/3558482.3590177>).
+
+The proposed **secondary** contribution — "establish a common evaluation protocol,
+its absence is itself a problem" — is also occupied: *SoK: Deep Learning-based
+Physical Side-channel Analysis* (ACM CSUR), *On the Evaluation of DL-based SCA*
+(<https://eprint.iacr.org/2021/952.pdf>), *On the Attack Evaluation and the
+Generalization Ability in Profiling SCA* (<https://eprint.iacr.org/2020/899>).
+Guessing entropy as the generalization metric is long-settled.
+
+The claim that "single-lab papers structurally cannot study portability" is
+**false** — labs with two boards study exactly this, and have.
+
+**What might survive:** the Kyber/ML-KEM work is done; **ML-DSA is less covered**,
+and the rejection-loop leakage *under domain shift* is a narrow, specific question
+that may be open. Verify directly against the ML+SCA survey's bibliography
+(<https://eprint.iacr.org/2025/1754.pdf>) before investing.
+
+### T5 — Post-quantum delegation for agentic systems → **DEAD AS PROPOSED**
+
+Both the framing and the piece explicitly identified as "the research content"
+are published.
+
+*The framing* — "agent frameworks have no verifiable delegation chain":
+- **AITH**: a *post-quantum continuous delegation protocol for AI agents*, with
+  push-based revocation and five security theorems machine-verified in **Tamarin**
+  under Dolev-Yao. This is T5, including the formal-methods layer proposed as the
+  differentiator.
+- **IBCT (Invocation-Bound Capability Tokens)**: identity + attenuated
+  authorization + provenance in an append-only token chain, holder-side
+  attenuation, chained Biscuit/Datalog mode, transport bindings across
+  **MCP/A2A/HTTP**.
+- *AIP: Agent Identity Protocol for Verifiable Delegation* (<https://arxiv.org/abs/2603.24775v1>).
+- *Authorization Propagation in Multi-Agent AI Systems* (<https://arxiv.org/pdf/2605.05440>).
+- *Governing Dynamic Capabilities: Cryptographic Binding* (<https://arxiv.org/html/2603.14332v1>).
+- *The Provenance Paradox in Multi-Agent LLM Routing* (<https://arxiv.org/pdf/2603.18043>).
+- IETF draft *Attenuating Authorization Tokens for Agentic Delegation Chains*;
+  A2A capability-based authorization SEP (<https://github.com/a2aproject/A2A/discussions/1404>).
+- Agent Passport System: Ed25519 delegation chains where sub-delegation can only
+  narrow scope — the monotonic-attenuation property proposed as novel.
+
+*The amortization construction* — proposed as "the research content is
+amortization; if you cannot find a non-obvious construction there, downgrade":
+- Merkle batch signing for PQ overhead is established: *Impact of Post-Quantum
+  Signatures on InnoDB* (<https://eprint.iacr.org/2026/987.pdf>) reports batch-512
+  Merkle-root signing at 28.1x insertion throughput and 97.6% per-record signature
+  storage reduction, with O(log b) proofs.
+- *Efficient post-quantum cryptographic signature aggregation*
+  (<https://link.springer.com/article/10.1186/s13635-026-00228-8>).
+- *Hash-Based Multi-Signatures for Post-Quantum Ethereum* (<https://eprint.iacr.org/2025/055.pdf>);
+  cross-input PQ signature aggregation.
+
+Applying Merkle batching to agent messages is engineering, not a construction.
+**Remove T5 from the portfolio**, or find a genuinely different axis.
+
+### T6 — Cryptographic agility as a measurable property → **METRIC MACHINERY OCCUPIED**
+
+- *Cryptographic Agility for Applications: An Assessment Framework*
+  (<https://link.springer.com/chapter/10.1007/978-3-032-28946-9_9>, arXiv 2606.13425):
+  seven orthogonal dimensions, including coupling dimensions measuring what
+  application code knows about algorithms and providers — the proposed metric.
+- **CARS (Crypto-Agility Readiness Score)**: a five-dimensional weighted metric on
+  a normalized [0,100] scale, evaluated across legacy system categories for
+  migration prioritization.
+- *Intent-Based Cryptographic API Design for Cryptographic Agility*
+  (<https://arxiv.org/pdf/2606.13445>) — the proposed *remedy* (an intent-based
+  crypto API shim), already published.
+- *On the Formalization of Cryptographic Migration* (<https://arxiv.org/pdf/2408.05997>).
+- <https://eprint.iacr.org/2026/1467.pdf> is formatted as an IEEE TIFS submission
+  on quantum-safe migration for legacy systems — check its final venue.
+- PQ artifact-size implications (ML-DSA-65 pk 1952B vs Ed25519 32B; ML-KEM-768
+  ct 1088B) are already documented in the migration literature.
+
+**What might survive:** the searches surfaced no ML-platform-specific agility
+work. Applying an existing framework to ML platforms, and the derivative-lineage
+and stored-artifact-format findings, may be open — but that is an *application*
+paper, and its Transactions viability rests entirely on whether the ML-specific
+findings are genuinely distinctive rather than a restatement. Thin.
+
+---
+
+## 6.6 Second-round tally: 7 checked, 7 occupied
+
+| ID | Status | Verdict |
+|---|---|---|
+| T1 | Framing occupied (CSA May 2026); measurement plausibly open | Reposition as measurement |
+| T2 | Substantially occupied (2606.07341, 2604.00560) | Reposition as extension |
+| T3 | **Core claim false** — portability is a named subfield, done on Kyber | ML-DSA rejection loop only; verify hard |
+| T4 | Headline published (Breaking Bad, 44,604 experiments; Clangover) | Invert; LLM repair carries it |
+| T5 | **Dead** — AITH, IBCT cover framing; Merkle amortization established | Remove |
+| T6 | Metric machinery and proposed remedy both published | ML-specific application only; thin |
+| T7 | **Dead** — attacks and defenses both published | Remove |
+| T8, T9, T10 | Unchecked | At 7/7, assume occupied |
+
+**Two of the four committed thesis papers (T5 as a Paper-4 option, T7 as reserve)
+are gone. The other five need their central claims rewritten from "gap" to
+"delta".**
+
+## 6.7 What the 7/7 result actually tells you
+
+Not that the field is closed. That the **method of generating these proposals was
+wrong**, and that the area is genuinely crowded by well-resourced groups moving
+at preprint speed.
+
+Note what the register shows: nearly every collision is a **2025-2026 arXiv or
+ePrint preprint**, not a settled journal result. That cuts both ways — scoop risk
+is high, and much of this work is unreplicated.
+
+**Positions that stay defensible for a student without a lab, precisely because
+resourced groups skip them:**
+
+1. **Reproduction and negative results.** Much of the colliding work above is
+   unreplicated preprints with self-reported numbers. Systematically reproducing
+   them, and reporting where they do not hold, is real, publishable, and
+   increasingly valued.
+2. **Benchmarks and evaluation infrastructure.** Requires labor, not equipment.
+   High citation. This is why T2 remains viable as an extension despite collision.
+3. **Systematization with a defensible thesis** — as distinct from a survey.
+4. **The unglamorous measurement nobody bothers to run.** T1's deployment scan is
+   the surviving example.
+5. **Adversarial re-evaluation of published defenses** under adaptive attackers —
+   defense papers routinely under-evaluate, and this is where the field's
+   evaluation crisis creates genuine openings.
+
+**And the honest structural point:** a problem list generated from web searches is
+terrain mapping, not problem selection. Problem selection needs a supervisor with
+standing in the area, sustained immersion in the primary literature, and the
+verification protocol in §6.4 run properly on every candidate. This repository is
+useful as a map and as a set of checks. It is not a substitute for either.
+
+### T8, T9, T10 — **UNCHECKED**
+
+Not yet searched. Given 7/7 above, assume occupied until shown otherwise. Known
 adjacent work already visible from earlier searches:
 
 | Proposal | Nearest known prior work |
@@ -192,10 +341,10 @@ you.
 |---|---|---|
 | **T1** | Framing occupied (CSA, May 2026); measurement likely open | Restate as an empirical measurement paper; cite CSA as motivation |
 | **T2** | Substantially occupied (2606.07341, 2604.00560) | Reposition as an extension targeting their stated failure on large dependency-complex projects |
-| **T3** | Unchecked; adjacent work known | Run §6.4 before committing |
+| **T3** | Core claim false — portability is an established subfield, done on Kyber | Only the ML-DSA rejection loop under domain shift may survive |
 | **T4** | Headline published (Breaking Bad, Clangover) | Invert: compiler study becomes setup, LLM-assisted repair becomes the contribution |
-| **T5** | Unchecked; adjacent work known | Run §6.4 |
-| **T6** | Unchecked; the proposed remedy already exists (2606.13445) | Run §6.4; likely needs rescoping |
+| **T5** | **Dead** — AITH and IBCT cover the framing; Merkle amortization is established | Remove from portfolio |
+| **T6** | Metric machinery (assessment framework, CARS) and the proposed remedy both published | ML-specific application only; thin |
 | **T7** | **Dead** — attacks and defenses both published | Remove from portfolio |
 | **T8** | Unchecked | Run §6.4 |
 | **T9** | Unchecked; known to be highly competitive | Run §6.4 |

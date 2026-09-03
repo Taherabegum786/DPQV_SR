@@ -1,7 +1,7 @@
 # 0. Proposal Index — the portfolio at a glance
 
-> ⚠ **Novelty unverified.** A prior-art check found substantial existing work on
-> all four proposals examined and removed T7 outright. Read
+> ⚠ **7 of 7 proposals checked came back occupied; T5 and T7 are dead.** A prior-art check found substantial existing work on
+> all seven proposals examined so far. Read
 > [`06-novelty-assessment.md`](06-novelty-assessment.md) first.
 
 Eleven proposals. Five are committed thesis outputs; four are reserve; two are
@@ -54,12 +54,15 @@ ground-truth work is the contribution, not the prompting.
 
 ### P4 — Paper 4, choose at month 20 *(months 22-36)*
 One of:
-- **T5** — "Post-Quantum Delegation: Verifiable, Attenuable Authority for
-  Multi-Agent LLM Systems" → IEEE TDSC · No hardware · *the constructive chapter*
-- **T3** — "Do Deep-Learning Side-Channel Models Transfer? Cross-Dataset
-  Generalization for ML-KEM and ML-DSA" → IEEE TIFS / TC · 1 GPU · *the technical-depth chapter*
-- **T6** — "Measuring Cryptographic Agility in Machine-Learning Systems"
-  → IEEE TDSC / TETC · No hardware · *the low-risk closer*
+- ~~**T5** — "Post-Quantum Delegation"~~ **REMOVED** — AITH (PQ agent delegation,
+  Tamarin-verified) and IBCT (attenuated capability chains over MCP/A2A) cover the
+  framing; Merkle amortization is established prior art
+- **T3** — *core claim false*: DL-SCA portability is an established subfield and
+  is already done on Kyber. Only the ML-DSA rejection loop under domain shift may
+  survive · IEEE TIFS / TC · 1 GPU
+- **T6** — *metric machinery published* (assessment framework, CARS) and the
+  proposed intent-based API remedy too. Only the ML-specific application may
+  survive; thin · IEEE TDSC / TETC · No hardware
 
 ---
 
