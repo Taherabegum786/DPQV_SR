@@ -2,69 +2,73 @@
 
 **Post-Quantum Security for Machine-Learning Systems**
 
-Planning repository for doctoral research at the intersection of LLM/AI security,
-post-quantum cryptography, and the quantum threat model.
+Planning repository for doctoral research across LLM/AI security, post-quantum
+cryptography, and the quantum threat model.
+
+## Start here
+
+**→ [`docs/08-execution-plan.md`](docs/08-execution-plan.md)** — the step-by-step
+process to actually follow, Phase 0 through Phase 7.
+
+**→ [`docs/06-novelty-assessment.md`](docs/06-novelty-assessment.md)** — read this
+before trusting any proposal in this repo.
+
+## Status, honestly
+
+A catalog of ten research proposals was generated, then prior-art checked.
+**All ten were already occupied.** Four are dead outright (T5, T7, T8, T9), one
+is reduced to a background section (T10), and five survive only as narrow deltas
+against named papers.
+
+That result was predictable rather than unlucky: compositions obvious enough to
+generate in one pass are obvious enough that someone with domain immersion did
+them two years ago. Real open problems are open because they are hard or
+unglamorous, not unthought-of.
+
+**Consequence:** the method changed from *generate proposals and verify them* to
+*reproduce published work and let problems surface from friction*. Every collision
+in the register arrived with a **stated limitation** attached — and those
+limitations are worth more than the ten proposals were.
+
+An attempt to run the one surviving measurement (the PQ deployment scan)
+independently confirmed the point: it could not run here, and the way it failed —
+silently returning exactly the hypothesised answer for three unrelated reasons —
+became a genuine methodological finding for the study.
 
 ## Operating constraints
 
-- **Compute:** one classical workstation, optionally one consumer GPU, cloud API
-  credits. **No quantum hardware. No side-channel lab equipment.**
-- **Publication target:** IEEE / ACM **Transactions** only.
-
-Every problem in this repository is executable under those constraints and maps
-to a specific Transactions venue.
-
-## Thesis claim
-
-> Machine-learning systems are a distinct and worst-case class of cryptographic
-> migration target. They combine long-lived confidential data held in invertible
-> representations, large unauthenticated binary artifacts with derivative
-> lineage, machine-speed autonomous delegation, and hard inference-time latency
-> budgets. Post-quantum migration methodology — built for TLS, PKI, and firmware
-> — does not address this class. This work characterizes the gap, quantifies the
-> exposure, and provides mechanisms that close it.
-
-Quantum computing enters as a **threat model**, and as **classical resource
-estimation about quantum algorithms**. It is deliberately not used as a
-machine-learning substrate — reasoning in `docs/02-open-problems.md` (T10 and the
-removals table) and a prepared committee answer in `docs/03-thesis-architecture.md` §3.6.
-
-PQC is classical cryptography designed against a quantum adversary. The entire
-field runs on ordinary machines.
+- One classical workstation, optionally one consumer GPU. **No quantum hardware.
+  No side-channel lab.**
+- Publication target: **IEEE / ACM Transactions only.**
+- PQC is classical cryptography designed against a quantum adversary. None of
+  this needs a quantum computer.
 
 ## Contents
 
 | Document | Purpose |
 |---|---|
-| [`docs/00-proposal-index.md`](docs/00-proposal-index.md) | Every proposal at a glance: committed spine, reserve, and deliberate exclusions |
-| [`docs/01-landscape-and-hurdles.md`](docs/01-landscape-and-hurdles.md) | What industry cannot currently do (H1-H13), and the three distinct senses of "quantum" |
-| [`docs/02-open-problems.md`](docs/02-open-problems.md) | Ten ranked problems with claim, method, required evidence, hardware cost, Transactions venue, and risk |
-| [`docs/03-thesis-architecture.md`](docs/03-thesis-architecture.md) | Unifying claim, four-paper sequence, time budget, failure modes |
-| [`docs/04-venues-and-rigor.md`](docs/04-venues-and-rigor.md) | Transactions targets per problem, what the constraint costs, rejection reasons, rigor checklist, ethics |
-| [`docs/06-novelty-assessment.md`](docs/06-novelty-assessment.md) | **Read first.** Prior-art register, the corrections it forced, and the per-problem novelty verification protocol |
-| [`docs/05-first-90-days.md`](docs/05-first-90-days.md) | Reading plan, workstation-only tooling, public trace datasets, two reproductions, one novel measurement |
+| [`docs/08-execution-plan.md`](docs/08-execution-plan.md) | **The plan.** Phases 0–7, with every lesson encoded as a guardrail |
+| [`limitations-ledger.md`](limitations-ledger.md) | The live problem source. Phase 1 fills it |
+| [`docs/06-novelty-assessment.md`](docs/06-novelty-assessment.md) | Prior-art register (10/10 occupied), and the novelty verification protocol |
+| [`docs/07-t1-scan-methodology.md`](docs/07-t1-scan-methodology.md) | The scan instrument, and the vantage-point hazard it exposed |
+| [`docs/04-venues-and-rigor.md`](docs/04-venues-and-rigor.md) | Transactions targets, rejection reasons, rigor checklist, ethics |
+| [`docs/01-landscape-and-hurdles.md`](docs/01-landscape-and-hurdles.md) | Industry hurdles H1–H13; the three senses of "quantum" |
+| [`docs/03-thesis-architecture.md`](docs/03-thesis-architecture.md) | Thesis framing and the committee answer on quantum. *Sequencing superseded by 08* |
+| [`docs/02-open-problems.md`](docs/02-open-problems.md) | Original proposal catalog. **Historical** — see 06 for what survived |
+| [`docs/00-proposal-index.md`](docs/00-proposal-index.md) | Proposal index with current status flags |
+| [`docs/05-first-90-days.md`](docs/05-first-90-days.md) | Tooling and datasets. *Sequencing superseded by 08* |
+| [`tools/pq_scan.py`](tools/pq_scan.py) | Gated PQ deployment scanner — refuses to run from an invalid vantage point |
 
-> **Novelty status:** the proposals below are *candidate framings, not verified
-> novel contributions.* A targeted prior-art check found substantial existing
-> work on all four proposals examined, and removed one outright. Read
-> [`docs/06-novelty-assessment.md`](docs/06-novelty-assessment.md) before acting
-> on any of them.
+## The four rules
 
-## Shortlist
+1. **Ideas are not scarce; validated gaps are.** Stop generating, start reproducing.
+2. **A stated limitation in someone's paper beats any idea you generate.**
+3. **Every experiment needs a positive control before it runs.** If your apparatus
+   cannot detect a known-present signal, its negative results mean nothing.
+4. **"Nobody has done this" is fragile. "X assumed B, B fails in C" is robust.**
 
-| Rank | Problem | Hardware | Transactions target |
-|---|---|---|---|
-| 1 | Harvest-now-decrypt-later against RAG and embedding stores | 1 GPU | IEEE TIFS |
-| 2 | Toolchain-introduced timing leakage in the PQC stack, with LLM-assisted repair | None | IEEE TSE / TDSC |
-| 3 | Benchmark for cryptographic discovery and PQC migration correctness | None | IEEE TSE / ACM TOSEM |
-| 4 | Cross-dataset generalization of DL side-channel attacks on ML-KEM / ML-DSA | 1 GPU | IEEE TIFS / TC |
-| 5 | Post-quantum provenance and delegation for agentic systems | None | IEEE TDSC |
+## Next action
 
-Full catalog including five lower-ranked problems, the removals, and the one to
-avoid: `docs/02-open-problems.md`.
-
-## Status
-
-Planning stage. Next action: the two reproductions in `docs/05-first-90-days.md`,
-weeks 2-6. The `-O0` vs `-O2` constant-time pilot is the highest-information
-two weeks available — it decides whether problem T4 exists.
+Phase 0, `docs/08-execution-plan.md`: install OpenSSL 3.5+, then run
+`python3 tools/pq_scan.py --check` from every network you have access to until
+one passes all three gates. Commit the passing output as evidence.
