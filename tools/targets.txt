@@ -1,0 +1,38 @@
+# T1 target list - embedding APIs and vector-database endpoints.
+# Passive TLS handshake observation only. No authentication, no requests.
+# Extend before publishing; this is a seed list, not a sampling frame.
+# Document your sampling frame in the paper - how hosts were chosen is
+# a reviewable methodological choice.
+
+# --- hosted embedding / inference APIs ---
+api.openai.com
+api.anthropic.com
+api.cohere.ai
+api.voyageai.com
+api.mistral.ai
+generativelanguage.googleapis.com
+api-inference.huggingface.co
+api.jina.ai
+api.together.xyz
+api.deepinfra.com
+
+# --- managed vector databases ---
+api.pinecone.io
+cloud.weaviate.io
+cloud.qdrant.io
+api.vectara.io
+cloud.zilliz.com
+api.chromadb.dev
+turbopuffer.com
+api.upstash.com
+
+# --- managed Postgres / pgvector and adjacent ---
+api.supabase.com
+api.neon.tech
+console.neon.tech
+
+# --- cloud vector / retrieval services ---
+search.googleapis.com
+api.cognitive.microsoft.com
+bedrock-runtime.us-east-1.amazonaws.com
+aiplatform.googleapis.com
