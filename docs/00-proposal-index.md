@@ -1,7 +1,8 @@
 # 0. Proposal Index — the portfolio at a glance
 
-> ⚠ **7 of 7 proposals checked came back occupied; T5 and T7 are dead.** A prior-art check found substantial existing work on
-> all seven proposals examined so far. Read
+> ⚠ **All 10 proposals checked. All 10 occupied. T5, T7, T8 and T9 are dead; T10
+> is a background section; the rest survive only as narrow deltas.** A prior-art check found substantial existing work on
+> every proposal examined. Read
 > [`06-novelty-assessment.md`](06-novelty-assessment.md) first.
 
 Eleven proposals. Five are committed thesis outputs; four are reserve; two are
@@ -73,7 +74,7 @@ One of:
 | ~~**T7**~~ | ~~Leaking Through the Cache~~ **REMOVED** | — | — | Attacks and defenses both published (PROMPTPEEK, EarlyBird, InputSnatch; SafeKV, PrefixWall) |
 | **T8** | Post-Quantum Secure Aggregation for Federated Learning Under Realistic Dropout | Optional ₹15k of Pi/ESP32 boards | IEEE TIFS / TMC | Somewhat crowded; differentiator is real-device measurement vs. simulation |
 | **T9** | Containment Instead of Detection: Provable Capability Bounds for Tool-Using LLM Agents | None | IEEE TDSC / ACM TOPS | Highest ceiling, highest competition — enter only with a formal layer |
-| **T10** | How Long Is Your Model Safe? Quantum Cryptanalytic Resource Estimation for ML Asset Lifetimes | None (laptop) | IEEE TETC | Strongest as a chapter and a section of P1; standalone only if a committee demands visible quantum content |
+| **T10** | Quantum Resource Estimation for ML Asset Lifetimes | None | — | **Background section only.** Resource estimation is mature; lifetime-based deadline models are published; Mosca's inequality dates to ~2015 |
 
 ---
 

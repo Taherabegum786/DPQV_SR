@@ -3,7 +3,8 @@
 *Written September 2026. First round: a targeted prior-art check on four
 proposals. Second round (§6.5 onward): T3, T5 and T6 checked as well.*
 
-**Running tally: 7 proposals checked, 7 occupied. Two removed outright.**
+**Final tally: 10 proposals checked, 10 occupied. Four dead (T5, T7, T8, T9),
+one reduced to a background section (T10), five surviving only as narrow deltas.**
 
 ## 6.1 The correction
 
@@ -12,9 +13,10 @@ searches, not from a systematic novelty check. Several of its gap statements —
 phrases like *"nobody has composed the two"* and *"there is no benchmark
 with..."* — were stated with more confidence than the evidence supported.
 
-Targeted searches have now checked seven proposals and found substantial prior
-art on **all seven**. Two (T5, T7) are dead as proposed. A 7/7 hit rate means the
-correct prior for the three unchecked proposals is that they are occupied too.
+Targeted searches checked all ten proposals and found substantial prior art on
+**all ten**. Four are dead as proposed (T5, T7, T8, T9); one is reduced to a
+background section (T10); the remaining five survive only as narrow deltas
+against named papers.
 
 **None of the proposals in this repository should be treated as verified novel
 until the protocol in §6.4 has been run on it.**
@@ -202,7 +204,7 @@ findings are genuinely distinctive rather than a restatement. Thin.
 
 ---
 
-## 6.6 Second-round tally: 7 checked, 7 occupied
+## 6.6 Final tally: 10 checked, 10 occupied
 
 | ID | Status | Verdict |
 |---|---|---|
@@ -213,13 +215,16 @@ findings are genuinely distinctive rather than a restatement. Thin.
 | T5 | **Dead** — AITH, IBCT cover framing; Merkle amortization established | Remove |
 | T6 | Metric machinery and proposed remedy both published | ML-specific application only; thin |
 | T7 | **Dead** — attacks and defenses both published | Remove |
-| T8, T9, T10 | Unchecked | At 7/7, assume occupied |
+| T8 | **Dead** — dropout-resilient PQ secure aggregation published, including the real-device edge | Remove |
+| T9 | **Dead** — CaMeL and IFC-for-agents publish the architecture, the non-interference property, and the 77%-vs-84% utility gap | Remove |
+| T10 | Occupied — resource estimation is mature; lifetime-based deadline models published; Mosca's inequality since ~2015 | Background section only |
 
-**Two of the four committed thesis papers (T5 as a Paper-4 option, T7 as reserve)
-are gone. The other five need their central claims rewritten from "gap" to
+**Four proposals are dead (T5, T7, T8, T9). T10 is a background section. The
+remaining five — T1, T2, T3, T4, T6 — survive only as narrow deltas against named
+papers, and every one of their original claims needs rewriting from "gap" to
 "delta".**
 
-## 6.7 What the 7/7 result actually tells you
+## 6.7 What the 10/10 result actually tells you
 
 Not that the field is closed. That the **method of generating these proposals was
 wrong**, and that the area is genuinely crowded by well-resourced groups moving
@@ -251,10 +256,81 @@ standing in the area, sustained immersion in the primary literature, and the
 verification protocol in §6.4 run properly on every candidate. This repository is
 useful as a map and as a set of checks. It is not a substitute for either.
 
-### T8, T9, T10 — **UNCHECKED**
+### T8 — Post-quantum secure aggregation for federated learning → **DEAD**
 
-Not yet searched. Given 7/7 above, assume occupied until shown otherwise. Known
-adjacent work already visible from earlier searches:
+Occupied, including the differentiator proposed to save it.
+
+- *Post-quantum Dropout-Resilient Aggregation for Federated Learning*
+  (<https://link.springer.com/content/pdf/10.1007/978-981-99-9785-5_27>) — the
+  proposal's title, essentially verbatim.
+- *A Post-quantum Secure Aggregation for Federated Learning*
+  (<https://dl.acm.org/doi/abs/10.1145/3586102.3586120>).
+- *Post-quantum Privacy-Preserving Aggregation in Federated Learning*
+  (<https://link.springer.com/chapter/10.1007/978-3-031-18067-5_23>).
+- *PQSF: post-quantum secure privacy-preserving federated learning*; HPRG-over-lattice
+  schemes with RLWE-based dropout resilience via threshold secret sharing.
+- *Byzantine-Robust FL with Post-Quantum Secure Aggregation for Critical IoT*
+  (<https://arxiv.org/pdf/2601.01053>).
+
+**The differentiator is gone too.** The proposal's stated edge was real-device
+measurement versus simulation. Published work already reports hardware-accelerated
+lattice crypto on ARM with ~10x speedups and sub-second aggregation latency at
+hundreds of participants. **Remove T8.**
+
+### T9 — Formal capability bounds for tool-using agents → **DEAD**
+
+The most complete collision in this register. The architecture, the formal
+property, *and* the measured utility cost are all published.
+
+- *Securing AI Agents with Information-Flow Control* (<https://arxiv.org/abs/2505.23643>):
+  formal models for reasoning about the security and expressiveness of agent
+  planners, plus a task taxonomy explicitly for evaluating **security/utility
+  trade-offs**.
+- **CaMeL**: control flow separated from data flow, Privileged LLM generating plans
+  from trusted queries, Quarantined LLM handling untrusted data without tool
+  access, custom interpreter tracking provenance and enforcing capability policies
+  before each tool call.
+- The non-interference formulation is published in the exact form proposed:
+  quarantine untrusted content behind typed channels, fix the control plan
+  independently of it, gate consequential actions with capabilities — so that the
+  sequence of consequential actions is a function of trusted inputs only.
+- *Open Challenges in Multi-Agent Security* (<https://arxiv.org/pdf/2505.02077>).
+
+**The claim that "the utility-cost measurement is the underserved half — that is
+your opening" was false.** CaMeL reports it: **77% of tasks solved with provable
+security against 84% undefended — a seven-point utility gap.** That is precisely
+the number the proposal offered to go and produce. **Remove T9.**
+
+### T10 — Quantum resource estimation for ML asset lifetimes → **OCCUPIED**
+
+Resource estimation is a mature subfield, and the specific composition proposed —
+attack cost models combined with data-confidentiality lifetimes to derive
+migration deadlines — is standard planning practice, not a research gap.
+
+- *Quantum Resource Estimates for Computing Elliptic Curve Discrete Logarithms*
+  (<https://eprint.iacr.org/2017/598.pdf>) — the canonical reference, 2017.
+- *Brace for impact: ECDLP challenges for quantum cryptanalysis* (<https://arxiv.org/pdf/2508.14011>).
+- *Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities:
+  Resource Estimates and Mitigations* (<https://arxiv.org/pdf/2603.28846>).
+- Shor with as few as ~10,000 reconfigurable atomic qubits (<https://arxiv.org/pdf/2603.28627>);
+  QLDPC-based compression of RSA-2048 estimates. Current figures cluster around
+  ~4,000 logical qubits for RSA-2048 and ~1,100-2,330 for ECC-256 — a fast-moving
+  target you would be chasing.
+- *Post-quantum readiness and cryptographic transition planning*
+  (<https://link.springer.com/article/10.1186/s42400-026-00579-2>) already compares
+  migration strategies using **migration start year, migration duration, and
+  confidentiality lifetime**, and computes exposure risk as the fraction of the
+  last X years protected by quantum-vulnerable mechanisms. That is T10's model.
+- Underneath all of it, **Mosca's inequality** (x + y > z: if data lifetime plus
+  migration time exceeds time-to-quantum, you are already late) has been the
+  canonical framing since roughly 2015.
+
+**Keep only as a background section** citing the above. Not a paper.
+
+### Nothing remains unchecked
+
+All ten proposals have now been checked. The adjacency table below is retained
+as a record of what was visible before the targeted checks were run:
 
 | Proposal | Nearest known prior work |
 |---|---|
@@ -353,3 +429,64 @@ you.
 The spine in `03-thesis-architecture.md` still stands as a *structure*. The
 individual paper claims inside it need the rewrite described above before they
 are submittable.
+
+
+---
+
+## 6.8 Why 10/10 was predictable, and what actually finds problems
+
+This was not bad luck. It is a systematic property of how the catalog was built.
+
+**An LLM generating "research gaps" from search summaries reliably produces
+plausible compositions that competent researchers have already done.** The
+compositions obvious enough to generate in one pass are obvious enough that
+someone with domain immersion did them two years ago. Genuine open problems are
+usually open because they are *hard* or *unglamorous* — not because nobody thought
+of them. Ideas are not the scarce input.
+
+Notice what every collision in this register came with: **a stated limitation.**
+
+| Colliding paper | Its own stated limit |
+|---|---|
+| arXiv 2606.07341 (LLM crypto migration) | fails on "larger projects with complex dependencies" |
+| CaMeL | 7-point utility gap; policies must be written by hand |
+| CSA HNDL paper | a position paper — no measurement |
+| Breaking Bad | classical libraries; PQC coverage incidental |
+| Kyber portability work | Kyber only; ML-DSA barely touched |
+
+**Those five limitations are worth more than the ten proposals in this
+repository.** They are specific, they are attributable, and a delta against them
+has the robust claim shape from §6.3. That is what a real problem looks like at
+the point of discovery: small, attached to a named paper, and boring-sounding.
+
+### The method that actually works
+
+Not idea generation. **Immersion plus friction:**
+
+1. **Reproduce something published.** Where it fails to reproduce, or holds only
+   under conditions the paper did not state, is a contribution. Most of the
+   colliding work above is 2025-2026 preprints with self-reported numbers and no
+   independent replication.
+2. **Read limitations and future-work sections systematically.** Authors tell you
+   what they could not do. Keep a file of these; it is a better problem source
+   than any generated list.
+3. **Try to deploy or use something and hit a wall.** Real friction generates real
+   problems.
+4. **Follow the citation graph forward** from a paper you care about until you
+   reach the current edge, then work at that edge.
+
+### Revised next action
+
+Not "pick a problem from the list." Instead run three cheap experiments, each of
+which either confirms a published result or opens a crack:
+
+1. **Run the T1 deployment scan.** Nobody has published it; it takes days; it
+   either produces a fact or tells you the fact is boring.
+2. **Reproduce CaMeL's 77%/84% numbers** on a current agent benchmark. If the gap
+   is larger under an adaptive attacker, that is a finding.
+3. **Reproduce arXiv 2606.07341 on a dependency-complex repository** — the case
+   its authors say it fails on. Confirming and characterizing that failure is the
+   most direct route to a defensible T2.
+
+Each is two to four weeks. Any one of them puts you in contact with the primary
+literature in a way that ten more generated proposals would not.
