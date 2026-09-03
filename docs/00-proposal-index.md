@@ -1,5 +1,9 @@
 # 0. Proposal Index — the portfolio at a glance
 
+> ⚠ **Novelty unverified.** A prior-art check found substantial existing work on
+> all four proposals examined and removed T7 outright. Read
+> [`06-novelty-assessment.md`](06-novelty-assessment.md) first.
+
 Eleven proposals. Five are committed thesis outputs; four are reserve; two are
 excluded on principle. Full detail for each in `02-open-problems.md`; sequencing
 in `03-thesis-architecture.md`.
@@ -63,7 +67,7 @@ One of:
 
 | ID | Proposal | Hardware | Venue | Why reserve |
 |---|---|---|---|---|
-| **T7** | Leaking Through the Cache: Prefix-Cache Side Channels in Multi-Tenant LLM Serving | 1 GPU | IEEE TIFS / TCC / TPDS | Strong, but carries no PQC content — only fits if the spine broadens to ML confidentiality |
+| ~~**T7**~~ | ~~Leaking Through the Cache~~ **REMOVED** | — | — | Attacks and defenses both published (PROMPTPEEK, EarlyBird, InputSnatch; SafeKV, PrefixWall) |
 | **T8** | Post-Quantum Secure Aggregation for Federated Learning Under Realistic Dropout | Optional ₹15k of Pi/ESP32 boards | IEEE TIFS / TMC | Somewhat crowded; differentiator is real-device measurement vs. simulation |
 | **T9** | Containment Instead of Detection: Provable Capability Bounds for Tool-Using LLM Agents | None | IEEE TDSC / ACM TOPS | Highest ceiling, highest competition — enter only with a formal layer |
 | **T10** | How Long Is Your Model Safe? Quantum Cryptanalytic Resource Estimation for ML Asset Lifetimes | None (laptop) | IEEE TETC | Strongest as a chapter and a section of P1; standalone only if a committee demands visible quantum content |

@@ -41,7 +41,14 @@ field runs on ordinary machines.
 | [`docs/02-open-problems.md`](docs/02-open-problems.md) | Ten ranked problems with claim, method, required evidence, hardware cost, Transactions venue, and risk |
 | [`docs/03-thesis-architecture.md`](docs/03-thesis-architecture.md) | Unifying claim, four-paper sequence, time budget, failure modes |
 | [`docs/04-venues-and-rigor.md`](docs/04-venues-and-rigor.md) | Transactions targets per problem, what the constraint costs, rejection reasons, rigor checklist, ethics |
+| [`docs/06-novelty-assessment.md`](docs/06-novelty-assessment.md) | **Read first.** Prior-art register, the corrections it forced, and the per-problem novelty verification protocol |
 | [`docs/05-first-90-days.md`](docs/05-first-90-days.md) | Reading plan, workstation-only tooling, public trace datasets, two reproductions, one novel measurement |
+
+> **Novelty status:** the proposals below are *candidate framings, not verified
+> novel contributions.* A targeted prior-art check found substantial existing
+> work on all four proposals examined, and removed one outright. Read
+> [`docs/06-novelty-assessment.md`](docs/06-novelty-assessment.md) before acting
+> on any of them.
 
 ## Shortlist
 

@@ -1,5 +1,13 @@
 # 2. Open Problem Catalog
 
+> ⚠ **Novelty in this document is unverified.** Gap statements below such as
+> "nobody has established" were written from orientation searches, not a
+> systematic prior-art check. A later targeted check found substantial prior
+> work on every proposal it examined and killed T7 outright. See
+> [`06-novelty-assessment.md`](06-novelty-assessment.md) for the register, the
+> corrected claims, and the verification protocol to run before committing to
+> any of these.
+
 **Constraints this catalog is built around:**
 - Compute available: one classical workstation, optionally one consumer GPU, plus
   cloud API credits. **No quantum hardware. No side-channel lab equipment.**
@@ -19,6 +27,10 @@ a condition; **D** = avoid.
 ---
 
 ## T1 — [TIER A] Harvest-Now-Decrypt-Later against RAG and embedding stores
+
+> **Status: framing occupied, measurement likely open.** CSA published this
+> composition as an industry paper in May 2026. Restate as an empirical
+> measurement study citing CSA as motivation — see §6.2.
 
 **Gap.** Two established results have never been composed: (a) dense embeddings
 are invertible — text is substantially, sometimes near-verbatim, recoverable from
@@ -73,6 +85,10 @@ paper. This is why it is your first paper.
 ---
 
 ## T2 — [TIER A] A benchmark for cryptographic discovery and PQC migration correctness
+
+> **Status: substantially occupied.** arXiv 2606.07341 already has real repos
+> and executable correctness at small scale. Reposition against its stated
+> failure on large dependency-complex projects — see §6.2.
 
 **Gap.** The PQC migration bottleneck is inventory and agility, not algorithms —
 organizations cannot find their own crypto. Existing LLM evaluations use small
@@ -185,6 +201,11 @@ result across four datasets is still publishable.
 ---
 
 ## T4 — [TIER A] Timing and microarchitectural leakage in the *deployed* PQC stack, with LLM-assisted localization
+
+> **Status: headline published.** "Breaking Bad" (arXiv 2410.13489) ran the
+> proposed matrix across 44,604 experiments; Clangover already hit ML-KEM.
+> Invert the paper: compiler study as setup, LLM-assisted repair as the
+> contribution — see §6.2.
 
 **Gap.** KyberSlash showed that reference PQC implementations shipped with
 secret-dependent timing. Tooling now exists (dudect, TIMECOP, MicroWalk,
@@ -302,7 +323,12 @@ the released tool are what prevent that.
 
 ---
 
-## T7 — [TIER B] Prefix-cache and KV-cache side channels in multi-tenant LLM serving
+## T7 — ~~[TIER B]~~ **REMOVED** — Prefix-cache and KV-cache side channels in multi-tenant LLM serving
+
+> **Status: dead.** Attacks (PROMPTPEEK, EarlyBird, InputSnatch) and defenses
+> (SafeKV, PrefixWall, Governing the KV Cache, Selective KV-Cache Sharing) are
+> all published. The proposed claim is the content of existing papers. Retained
+> below only as a record of why it was dropped — see §6.2.
 
 **Gap.** Prefix caching, paged attention, and speculative decoding create timing
 differences dependent on other tenants' data. Some prompt-cache timing attacks
