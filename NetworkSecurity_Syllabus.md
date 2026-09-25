@@ -1,7 +1,7 @@
 # Network Security — Syllabus
 
 Pulled from the lesson contents pages of the Network Security SLM PDFs (Units 1, 2, 3, 5, 6, 7, 8).
-Unit 4 (Lessons 14–19, about pages 138–258) was not uploaded, so it is not listed here yet.
+Unit 4 (Lessons 14–19) was added from screenshots; the Lesson 18 contents page is still missing.
 The "Review Questions" and "References" items at the end of each lesson are left out.
 
 ---
@@ -161,9 +161,82 @@ The "Review Questions" and "References" items at the end of each lesson are left
   - 13.1.8 The Strength of IDEA
   - 13.1.9 Summary of IDEA
 
-## Unit 4 (about pp. 138–258): not uploaded yet
+## Unit 4 (pp. 138–258)
 
-Lessons 14–19 will be added once the file is available.
+Taken from screenshots. The Lesson 18 contents page was not among them.
+
+### Lesson 14 — Advanced Encryption Standard
+- 14.1 Introduction
+- 14.2 Advanced Encryption Standard
+- 14.3 AES Cipher
+- 14.4 Substitute Bytes Transformation
+  - 14.4.1 Forward and Inverse Transformations
+  - 14.4.2 Rationale
+- 14.5 ShiftRows Transformation
+  - 14.5.1 Forward and Inverse Transformations
+  - 14.5.2 Rationale
+- 14.6 MixColumns Transformation
+  - 14.6.1 Forward and Inverse Transformations
+  - 14.6.2 Rationale
+- 14.7 AddRoundKey Transformation
+  - 14.7.1 Forward and Inverse Transformations
+- 14.8 AES Key Expansion
+  - 14.8.1 Key Expansion
+  - 14.8.2 Rationale
+  - 14.8.3 Equivalent Inverse Cipher
+  - 14.8.4 Interchanging InvShiftRows and InvSubBytes
+  - 14.8.5 Interchanging AddRoundKey and InvMixColumns
+
+### Lesson 15 — Modes of Operation
+- 15.1 Block Cipher Modes of Operation
+- 15.2 Electronic Code Book (ECB) Mode
+- 15.3 Cipher Block Chaining (CBC) Mode
+- 15.4 Cipher Feed Back (CFB) Mode
+- 15.5 Output Feed Back (OFB) Mode
+
+### Lesson 16 — Message Authentication and Hash Functions
+- 16.1 Introduction
+- 16.2 Message Encryption
+- 16.3 Message Authentication
+- 16.4 Hash Function
+- 16.5 Secure Hash Algorithm (SHA-1)
+- 16.6 HMAC
+- 16.7 CMAC
+- 16.8 MD2
+  - 16.8.1 MD2 Padding
+  - 16.8.2 MD2 Checksum Computation
+  - 16.8.3 MD2 Final Pass
+- 16.9 MD4
+  - 16.9.1 MD4 Message Padding
+  - 16.9.2 Overview of MD4 Message Digest Computation
+  - 16.9.3 MD4 Message Digest Pass 1
+  - 16.9.4 MD4 Message Digest Pass 2
+  - 16.9.5 MD4 Message Digest Pass 3
+- 16.10 MD5
+  - 16.10.1 MD5 Message Padding
+  - 16.10.2 Overview of MD5 Message Digest Computation
+  - 16.10.3 MD5 Message Digest Pass 1
+  - 16.10.4 MD5 Message Digest Pass 2
+  - 16.10.5 MD5 Message Digest Pass 3
+  - 16.10.6 MD5 Message Digest Pass 4
+- 16.11 Difference between SHA-1 and MD5
+
+### Lesson 17 — RSA and Diffie–Hellman Algorithms
+- 17.1 Objectives
+- 17.2 The RSA Algorithm
+- 17.3 Computational Aspects
+- 17.4 Efficient Operation Using the Public Key
+- 17.5 Efficient Operation Using the Private Key
+- 17.6 The Security of RSA
+- 17.7 Diffie–Hellman Key Exchange
+- 17.8 Man-in-the-Middle Attack
+
+### Lesson 18 — (contents page not yet provided)
+
+### Lesson 19 — Elliptic Curve Cryptography
+- 19.1 Objective
+- 19.2 Elliptic Curves
+- 19.3 Elliptic Curve Cryptography
 
 ## Unit 5 (pp. 259–276)
 
