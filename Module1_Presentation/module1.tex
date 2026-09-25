@@ -128,6 +128,14 @@
 \newcommand{\bad}[1]{\textcolor{brick}{\textbf{#1}}}
 \newcommand{\good}[1]{\textcolor{leaf}{\textbf{#1}}}
 
+\makeatletter
+% University logo, small, top-right corner of every page
+\AddToHook{shipout/foreground}{%
+  \put(\strip@pt\paperwidth,0){%
+    \makebox(0,0)[tr]{\raisebox{-0.08cm}{\tikz\node[fill=white,rounded corners=3pt,inner sep=1.5pt,opacity=0.95,text opacity=1]
+      {\includegraphics[height=0.72cm]{au_logo.png}};\hspace{0.12cm}}}}}
+\makeatother
+
 % ------------------------------------------------------------
 \title[Module 1: Foundations]{Foundations of Network Security}
 \subtitle{Module 1 \,\textbar\, Lesson 1: Introduction to Network Security \,\textbullet\, Lesson 2: Network Models}
