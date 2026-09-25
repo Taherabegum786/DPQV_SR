@@ -1,7 +1,7 @@
 # Network Security — Syllabus
 
 Pulled from the lesson contents pages of the Network Security SLM PDFs (Units 1, 2, 3, 5, 6, 7, 8).
-Unit 4 (Lessons 14–19) was added from screenshots; the Lesson 18 contents page is still missing.
+Unit 4 (Lessons 14–19) was added from screenshots. All 30 lessons are now included.
 The "Review Questions" and "References" items at the end of each lesson are left out.
 
 ---
@@ -163,7 +163,7 @@ The "Review Questions" and "References" items at the end of each lesson are left
 
 ## Unit 4 (pp. 138–258)
 
-Taken from screenshots. The Lesson 18 contents page was not among them.
+Taken from screenshots.
 
 ### Lesson 14 — Advanced Encryption Standard
 - 14.1 Introduction
@@ -231,7 +231,11 @@ Taken from screenshots. The Lesson 18 contents page was not among them.
 - 17.7 Diffie–Hellman Key Exchange
 - 17.8 Man-in-the-Middle Attack
 
-### Lesson 18 — (contents page not yet provided)
+### Lesson 18 — Digital Signature Standards
+- 18.1 Introduction
+- 18.2 Direct Digital Signature
+- 18.3 Authentication Protocols
+- 18.4 Digital Signature Standard
 
 ### Lesson 19 — Elliptic Curve Cryptography
 - 19.1 Objective
