@@ -38,7 +38,7 @@ out = [r"""\documentclass[11pt,a4paper]{article}
 \setlength{\parindent}{0pt}
 \newtcolorbox{slidebox}[3]{enhanced,breakable=false,colback=white,colframe=ocean,boxrule=0.6pt,arc=2mm,
   left=3mm,right=3mm,top=2mm,bottom=2mm,
-  title={\textbf{Slide #1}\;\,|\;\,#2\hfill\normalfont\small $\approx$ #3 s},
+  title={\textbf{Slide #1}\;\,|\;\,#2\quad\normalfont\small(about #3 seconds)},
   fonttitle=\sffamily\color{white},colbacktitle=navy,attach boxed title to top left={yshift=-2mm,xshift=3mm},
   boxed title style={arc=1.5mm,colback=navy},before skip=5mm,after skip=3mm}
 \begin{document}
